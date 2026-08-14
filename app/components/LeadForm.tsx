@@ -437,40 +437,55 @@ export default function LeadForm() {
           PHONE CTA
       ====================================================== */}
 
-      <div className="border-t border-[#edf2ed] bg-[#f7faf7] px-6 py-5 md:px-8">
+      {/* =====================================================
+    PHONE CTA
+====================================================== */}
 
-        <div className="flex items-center justify-between gap-4">
+<div className="border-t border-[#edf2ed] bg-[#f7faf7] px-6 py-5 md:px-8">
 
-          <div className="flex items-center gap-3">
+  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
 
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#eaf3ea] text-[#00540D]">
-              <Phone size={16} />
-            </div>
+    <div className="flex items-start gap-3">
 
-            <div>
+      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#eaf3ea] text-[#00540D]">
+        <Phone size={16} />
+      </div>
 
-              <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#8a938d]">
-                Prefer to call?
-              </p>
+      <div>
 
-              <a
-                href="tel:+919999999999"
-                className="mt-0.5 block text-sm font-bold text-black transition-colors hover:text-[#00540D]"
-              >
-                +91 99999 99999
-              </a>
+        <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#8a938d]">
+          Prefer to call?
+        </p>
 
-            </div>
+        <div className="mt-1 flex flex-col gap-1">
 
-          </div>
+          <a
+            href="tel:+919959354255"
+            className="text-sm font-bold text-black transition-colors hover:text-[#00540D]"
+          >
+            +91 99593 54255
+          </a>
 
-          <span className="hidden text-xs text-[#68716B] sm:block">
-            Sales Assistance
-          </span>
+          <a
+            href="tel:+917337317289"
+            className="text-sm font-bold text-black transition-colors hover:text-[#00540D]"
+          >
+            +91 73373 17289
+          </a>
 
         </div>
 
       </div>
+
+    </div>
+
+    <span className="text-xs text-[#68716B]">
+      Sales Assistance
+    </span>
+
+  </div>
+
+</div>
 
     </div>
   );
