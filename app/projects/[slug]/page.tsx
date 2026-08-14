@@ -115,9 +115,9 @@ export default async function ProjectPage({
 
     url: projectUrl,
 
-    image: [
-      `https://openplotsinshadnagar.com/images/projects/${project.slug}.webp`,
-    ],
+   image: [
+  `https://openplotsinshadnagar.com${project.image}`,
+],
 
     address: {
       "@type": "PostalAddress",
@@ -271,31 +271,57 @@ export default async function ProjectPage({
 
             {/* RIGHT IMAGE */}
 
-            <div className="relative overflow-hidden rounded-[28px] border border-[#dce5dd] bg-[#eaf3ea] shadow-[0_20px_50px_rgba(0,84,13,0.10)]">
+          {/* RIGHT IMAGE */}
 
-              <div className="aspect-[4/3] bg-gradient-to-br from-[#eaf3ea] to-[#f7faf7]">
+<div className="relative overflow-hidden rounded-[28px] border border-[#dce5dd] bg-[#eaf3ea] shadow-[0_20px_50px_rgba(0,84,13,0.10)]">
 
-                {/* Add actual project image here */}
+  <div className="relative aspect-[4/3] overflow-hidden">
 
-                <div className="flex h-full items-center justify-center">
+    <img
+      src={project.image}
+      alt={`${project.name} - ${project.type} in ${project.location}`}
+      className="absolute inset-0 h-full w-full object-cover"
+    />
 
-                  <div className="text-center">
+    {/* Image overlay */}
 
-                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#00540D]">
-                      {project.name}
-                    </p>
+    <div
+      aria-hidden="true"
+      className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent"
+    />
 
-                    <p className="mt-2 text-sm text-[#68716B]">
-                      Project Image
-                    </p>
+    {/* Project type */}
 
-                  </div>
+    <div className="absolute left-5 top-5">
 
-                </div>
+      <span className="rounded-full bg-white/95 px-4 py-2 text-xs font-bold uppercase tracking-[0.15em] text-[#00540D] shadow-lg">
+        {project.type}
+      </span>
 
-              </div>
+    </div>
 
-            </div>
+    {/* Location */}
+
+    <div className="absolute bottom-5 left-5 right-5">
+
+      <div className="flex items-center gap-2 text-sm font-medium text-white">
+
+        <MapPin
+          size={16}
+          aria-hidden="true"
+        />
+
+        <span>
+          {project.location}
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
 
           </div>
 
