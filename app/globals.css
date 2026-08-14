@@ -5,52 +5,29 @@
    Brand Theme:
    White Background + Deep Green + Black Typography
    ========================================================= */
-
 :root {
-  /* =========================
-     BACKGROUNDS
-  ========================== */
-
   --background: #ffffff;
   --section: #f7faf7;
   --surface: #ffffff;
   --surface-soft: #f1f6f2;
 
-  /* =========================
-     BRAND GREEN
-  ========================== */
+  /* BRAND GREEN */
+  --brand-green: #00694E;
+  --brand-green-dark: #00543E;
+  --brand-green-light: #E8F5F1;
+  --brand-green-soft: #F3F9F7;
 
-  --brand-green: #0b8a1e;
-  --brand-green-dark: #077a18;
-  --brand-green-light: #eaf3ea;
-  --brand-green-soft: #f3f8f3;
-
-  /* =========================
-     ACCENT
-  ========================== */
-
-  --gold: #b8892d;
-  --gold-dark: #946c20;
-  --gold-light: #d5b45f;
-
-  /* =========================
-     TEXT
-  ========================== */
-
+  /* TEXT */
   --text: #111111;
   --heading: #000000;
   --text-soft: #333333;
   --muted: #68716b;
   --muted-light: #8a938d;
 
-  /* =========================
-     BORDER
-  ========================== */
-
+  /* BORDER */
   --border: #e1e8e1;
   --border-light: #edf2ed;
 }
-
 /* =========================================================
    RESET
 ========================================================= */
