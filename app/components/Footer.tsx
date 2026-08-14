@@ -1,5 +1,7 @@
 import Link from "next/link";
-
+import {
+  Phone,
+} from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -153,22 +155,37 @@ export default function Footer() {
               </div>
 
               {/* Phone */}
+{/* Phone Numbers */}
 
-              <a
-                href="tel:+919999999999"
-                className="group flex items-center gap-3 text-sm text-[#53605A] transition-colors duration-200 hover:text-[#00540D]"
-              >
+<div className="space-y-3">
 
-                <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#eaf3ea] text-[#00540D]">
-              
-                </span>
+  <a
+    href="tel:+919959354255"
+    className="group flex items-center gap-3 text-sm text-[#53605A] transition-colors duration-200 hover:text-[#00540D]"
+  >
+    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#eaf3ea] text-[#00540D]">
+      <Phone size={17} />
+    </span>
 
-                <span>
-                  +91 99999 99999
-                </span>
+    <span>
+      +91 99593 54255
+    </span>
+  </a>
 
-              </a>
+  <a
+    href="tel:+917337317289"
+    className="group flex items-center gap-3 text-sm text-[#53605A] transition-colors duration-200 hover:text-[#00540D]"
+  >
+    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#eaf3ea] text-[#00540D]">
+      <Phone size={17} />
+    </span>
 
+    <span>
+      +91 73373 17289
+    </span>
+  </a>
+
+</div>
               {/* Email */}
 
               <a

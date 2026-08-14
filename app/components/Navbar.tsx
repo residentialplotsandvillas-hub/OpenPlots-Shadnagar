@@ -420,16 +420,23 @@ export default function Navbar() {
 
             <div className="mt-5 grid grid-cols-2 gap-3">
 
-              <a
-                href="tel:+919999999999"
-                className="flex items-center justify-center gap-2 rounded-xl border border-[#dce5dd] bg-white px-4 py-3.5 text-sm font-semibold text-[#00540D] transition-all hover:border-[#00540D] hover:bg-[#f3f8f3]"
-              >
+             <div className="col-span-2 grid grid-cols-2 gap-3">
+  <a
+    href="tel:+919959354255"
+    className="flex items-center justify-center gap-2 rounded-xl border border-[#dce5dd] bg-white px-3 py-3.5 text-xs font-semibold text-[#00540D] transition-all hover:border-[#00540D] hover:bg-[#f3f8f3]"
+  >
+    <Phone size={15} />
+    99593 54255
+  </a>
 
-                <Phone size={16} />
-
-                Call Now
-
-              </a>
+  <a
+    href="tel:+917337317289"
+    className="flex items-center justify-center gap-2 rounded-xl border border-[#dce5dd] bg-white px-3 py-3.5 text-xs font-semibold text-[#00540D] transition-all hover:border-[#00540D] hover:bg-[#f3f8f3]"
+  >
+    <Phone size={15} />
+    73373 17289
+  </a>
+</div>
 
               <Link
                 href="/book-site-visit"
