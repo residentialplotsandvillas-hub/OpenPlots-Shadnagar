@@ -256,12 +256,14 @@ export default async function ProjectPage({
                   <ArrowUpRight size={16} />
                 </Link>
 
-                <a
-                  href="tel:+919999999999"
-                  className="inline-flex items-center rounded-full border border-[#dce5dd] bg-white px-6 py-3.5 text-sm font-semibold text-[#00540D] transition hover:border-[#00540D]"
-                >
-                  Enquire Now
-                </a>
+               <a
+  href="https://wa.me/919959354255"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center rounded-full border border-[#dce5dd] bg-white px-6 py-3.5 text-sm font-semibold text-[#00540D] transition hover:border-[#00540D]"
+>
+  Enquire Now
+</a>
 
               </div>
 
@@ -651,13 +653,12 @@ export default async function ProjectPage({
               >
                 Book Site Visit
               </Link>
-
-              <a
-                href="tel:+919999999999"
-                className="rounded-full border border-[#dce5dd] bg-white px-7 py-3.5 text-sm font-semibold text-[#00540D] transition hover:border-[#00540D]"
-              >
-                Call Now
-              </a>
+<a
+  href="tel:+919959354255"
+  className="rounded-full border border-[#dce5dd] bg-white px-7 py-3.5 text-sm font-semibold text-[#00540D] transition hover:border-[#00540D]"
+>
+  Call Now
+</a>
 
             </div>
 

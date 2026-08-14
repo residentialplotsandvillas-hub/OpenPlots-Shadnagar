@@ -985,16 +985,13 @@ export default function ReraApprovedPlotsPage() {
                 <Benefit text="Site visit coordination" />
 
               </div>
-
-              <a
-                href="tel:+919999999999"
-                className="mt-8 inline-flex items-center gap-2 text-sm font-bold text-[#00540D]"
-              >
-                <Phone size={17} />
-
-                Call for Plot Details
-
-              </a>
+<a
+  href="tel:+919959354255"
+  className="mt-8 inline-flex items-center gap-2 text-sm font-bold text-[#00540D]"
+>
+  <Phone size={17} />
+  Call for Plot Details
+</a>
 
             </div>
 

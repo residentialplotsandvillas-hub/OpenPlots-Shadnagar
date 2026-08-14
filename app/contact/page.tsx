@@ -226,16 +226,23 @@ export default function ContactPage() {
 
               <div className="mt-8 flex flex-wrap gap-3">
 
-                <a
-                  href="tel:+919999999999"
-                  className="inline-flex items-center gap-2 rounded-full bg-[#00540D] px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-[#003B09] hover:shadow-md"
-                >
+              <div className="col-span-2 grid grid-cols-2 gap-3">
+  <a
+    href="tel:+919959354255"
+    className="flex items-center justify-center gap-2 rounded-xl border border-[#dce5dd] bg-white px-3 py-3.5 text-xs font-semibold text-[#00540D] transition-all hover:border-[#00540D] hover:bg-[#f3f8f3]"
+  >
+    <Phone size={15} />
+    99593 54255
+  </a>
 
-                  <Phone size={17} />
-
-                  Call Now
-
-                </a>
+  <a
+    href="tel:+917337317289"
+    className="flex items-center justify-center gap-2 rounded-xl border border-[#dce5dd] bg-white px-3 py-3.5 text-xs font-semibold text-[#00540D] transition-all hover:border-[#00540D] hover:bg-[#f3f8f3]"
+  >
+    <Phone size={15} />
+    73373 17289
+  </a>
+</div>
 
                 <Link
                   href="/book-site-visit"
@@ -271,12 +278,19 @@ export default function ContactPage() {
 
               <div className="mt-7 space-y-4">
 
-                <ContactItem
-                  icon={<Phone size={18} />}
-                  title="Phone"
-                  value="+91 99999 99999"
-                  href="tel:+919999999999"
-                />
+             <ContactItem
+  icon={<Phone size={18} />}
+  title="Phone"
+  value="+91 99593 54255"
+  href="tel:+919959354255"
+/>
+
+<ContactItem
+  icon={<Phone size={18} />}
+  title="Phone"
+  value="+91 73373 17289"
+  href="tel:+917337317289"
+/>
 
                 <ContactItem
                   icon={<Mail size={18} />}
@@ -299,12 +313,12 @@ export default function ContactPage() {
 
               </div>
 
-              <a
-                href="https://wa.me/919999999999"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-7 flex items-center justify-center gap-2 rounded-xl bg-[#eaf3ea] px-5 py-4 text-sm font-semibold text-[#00540D] transition hover:bg-[#dceedd]"
-              >
+           <a
+  href="https://wa.me/919959354255"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mt-7 flex items-center justify-center gap-2 rounded-xl bg-[#eaf3ea] px-5 py-4 text-sm font-semibold text-[#00540D] transition hover:bg-[#dceedd]"
+>
 
                 <MessageCircle size={18} />
 
@@ -696,16 +710,13 @@ export default function ContactPage() {
 
             <div className="flex flex-wrap gap-3">
 
-              <a
-                href="tel:+919999999999"
-                className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-4 text-sm font-bold text-[#00540D] transition hover:bg-[#eaf3ea]"
-              >
-
-                <Phone size={17} />
-
-                Call Now
-
-              </a>
+           <a
+  href="tel:+919959354255"
+  className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-4 text-sm font-bold text-[#00540D] transition hover:bg-[#eaf3ea]"
+>
+  <Phone size={17} />
+  +91 99593 54255
+</a>
 
               <Link
                 href="/book-site-visit"
