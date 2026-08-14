@@ -657,3 +657,26 @@ select.input-premium {
 .btn-gold:hover {
   background-color: #00543E;
 }
+
+/* =========================================
+   GREEN BUTTON TEXT
+========================================= */
+
+.btn-primary,
+.btn-gold {
+  color: #ffffff !important;
+}
+
+[class*="bg-[#00694E]"] {
+  color: #ffffff !important;
+}
+
+[class*="bg-[#00540D]"] {
+  color: #ffffff !important;
+}
+
+/* Hover */
+[class*="bg-[#00694E]"]:hover,
+[class*="bg-[#00540D]"]:hover {
+  color: #ffffff !important;
+}
