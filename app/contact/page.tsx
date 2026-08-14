@@ -10,6 +10,9 @@ import {
   MessageCircle,
   Phone,
   Send,
+  Home,
+  ShieldCheck,
+  CheckCircle2,
 } from "lucide-react";
 
 import LeadForm from "../components/LeadForm";
