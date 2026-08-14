@@ -19,6 +19,14 @@ export type Project = {
   bankLoan?: boolean;
 
   description: string;
+
+  // SEO fields
+  seoTitle?: string;
+  seoDescription?: string;
+  keywords?: string[];
+
+  // Project highlights
+  highlights?: string[];
 };
 
 export const projects: Project[] = [
