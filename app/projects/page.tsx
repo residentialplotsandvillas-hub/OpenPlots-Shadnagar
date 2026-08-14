@@ -10,6 +10,7 @@ import {
   MapPin,
   Ruler,
   ShieldCheck,
+  Home,
 } from "lucide-react";
 
 import { projects } from "@/data/projects";
