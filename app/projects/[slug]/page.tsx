@@ -401,26 +401,21 @@ export default async function ProjectPage({
 
               <div className="mt-6 space-y-4">
 
-                {project.highlights.map(
-                  (highlight) => (
-                    <div
-                      key={highlight}
-                      className="flex items-start gap-3"
-                    >
+              {(project.highlights ?? []).map((highlight) => (
+  <div
+    key={highlight}
+    className="flex items-start gap-3"
+  >
+    <CheckCircle2
+      size={18}
+      className="mt-0.5 shrink-0 text-[#00540D]"
+    />
 
-                      <CheckCircle2
-                        size={18}
-                        className="mt-0.5 shrink-0 text-[#00540D]"
-                      />
-
-                      <span className="text-sm leading-6 text-[#53605A]">
-                        {highlight}
-                      </span>
-
-                    </div>
-                  )
-                )}
-
+    <span className="text-sm leading-6 text-[#53605A]">
+      {highlight}
+    </span>
+  </div>
+))}
               </div>
 
             </div>
