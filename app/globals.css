@@ -621,3 +621,39 @@ select.input-premium {
     width: calc(100% - 28px);
   }
 }
+
+/* =========================================================
+   GLOBAL WEBSITE BUTTON COLOR
+   Only changes existing green button colors
+========================================================= */
+
+/* Main green buttons */
+[class*="bg-[#00540D]"] {
+  background-color: #00694E !important;
+}
+
+/* Hover */
+[class*="hover:bg-[#003B09]"]:hover {
+  background-color: #00543E !important;
+}
+
+/* Existing old green backgrounds */
+[class*="bg-[#0b8a1e]"] {
+  background-color: #00694E !important;
+}
+
+/* Existing old green hover */
+[class*="hover:bg-[#077a18]"]:hover {
+  background-color: #00543E !important;
+}
+
+/* CSS button classes */
+.btn-primary,
+.btn-gold {
+  background-color: #00694E;
+}
+
+.btn-primary:hover,
+.btn-gold:hover {
+  background-color: #00543E;
+}
