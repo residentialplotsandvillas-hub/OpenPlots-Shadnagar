@@ -9,6 +9,7 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -35,24 +36,21 @@ export default function Navbar() {
               LOGO
           ====================================================== */}
 
-          <Link
-            href="/"
-            onClick={closeMenu}
-            aria-label="Open Plots in Shadnagar Home"
-            className="group shrink-0"
-          >
-            <div className="leading-none">
-
-              <div className="text-[21px] font-bold tracking-[-0.04em] text-[#00540D] transition-colors duration-200 group-hover:text-[#003B09]">
-                OpenPlots
-              </div>
-
-              <div className="mt-1 text-[9px] font-bold uppercase tracking-[0.23em] text-[#111111]">
-                Shadnagar
-              </div>
-
-            </div>
-          </Link>
+        <Link
+  href="/"
+  onClick={closeMenu}
+  aria-label="Open Plots in Shadnagar Home"
+  className="group shrink-0"
+>
+  <Image
+    src="/images/logo.png"
+    alt="Open Plots in Shadnagar"
+    width={80}
+    height={30}
+    priority
+    className="h-auto w-[80px] object-contain transition-opacity duration-200 group-hover:opacity-90"
+  />
+</Link>
 
           {/* =====================================================
               DESKTOP NAVIGATION

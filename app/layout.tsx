@@ -7,6 +7,45 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 import "./globals.css";
+import GoogleAnalytics from "./components/GoogleAnalytics";
+
+
+
+import JsonLd from "./components/JsonLd";
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  name: "Aarna Infra Developers",
+  url: "https://www.openplotsinshadnagar.com",
+  logo: "https://www.openplotsinshadnagar.com/images/logo.png",
+  telephone: "+91-9959354255",
+
+  address: {
+    "@type": "PostalAddress",
+    streetAddress:
+      "101, Rd Number 10, Kakatiya Hills, Guttala_Begumpet, Jayakesav Avenue, Madhapur",
+    addressLocality: "Hyderabad",
+    addressRegion: "Telangana",
+    postalCode: "500081",
+    addressCountry: "IN",
+  },
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Open Plots in Shadnagar",
+  url: "https://www.openplotsinshadnagar.com",
+  logo: "https://www.openplotsinshadnagar.com/logo.png",
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Open Plots in Shadnagar",
+  url: "https://www.openplotsinshadnagar.com",
+};
 
 const BASE_URL =
   "https://openplotsinshadnagar.com";
@@ -145,11 +184,14 @@ export default function RootLayout({
         ================================================== */}
 
         <Navbar />
+ <GoogleAnalytics />
 
         {/* =================================================
             PAGE CONTENT
         ================================================== */}
-
+<JsonLd data={organizationSchema} />
+  <JsonLd data={websiteSchema} />
+<JsonLd data={localBusinessSchema} />
         {children}
 
         {/* =================================================
