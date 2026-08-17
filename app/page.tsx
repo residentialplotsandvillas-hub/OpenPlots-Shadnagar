@@ -766,7 +766,7 @@ export default function HomePage() {
 
                   <Link
                     href="/projects"
-                    className="rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-[#00540D] transition hover:bg-[#f1f6f2]"
+                    className="rounded-full border border-white/30 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-white/10"
                   >
                     Explore Projects
                   </Link>
