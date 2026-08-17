@@ -17,6 +17,7 @@ import {
 import FeaturedProjects from "./components/FeaturedProjects";
 import WhyShadnagar from "./components/WhyShadnagar";
 import LeadForm from "./components/LeadForm";
+import Hero from "./components/Hero";
 
 
 /* =========================================================
@@ -146,112 +147,16 @@ export default function HomePage() {
             HERO
         ==================================================== */}
 
+
         <section className="relative isolate min-h-[680px] overflow-hidden bg-[#003B09]">
 
           {/* Background Image */}
 
-          <div className="absolute inset-0 -z-20">
-
-            <Image
-              src="/images/hero/shadnagar-plots.webp"
-              alt="Open plots and plotted development near Shadnagar"
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover"
-            />
-
-          </div>
-
-          {/* Green Overlay */}
-
-          <div className="hero-overlay absolute inset-0 -z-10" />
-
-          {/* Bottom Overlay */}
-
-          <div className="hero-bottom absolute inset-x-0 bottom-0 -z-10 h-56" />
-
-          <div className="container-main">
-
-            <div className="flex min-h-[680px] items-center py-20">
-
-              <div className="max-w-4xl">
-
-                {/* Eyebrow */}
-
-                <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 backdrop-blur-md">
-
-                  <span className="h-2 w-2 rounded-full bg-[#d5b45f]" />
-
-                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white">
-                    Premium Plot Projects Near Shadnagar
-                  </span>
-
-                </div>
-
-                {/* H1 */}
-
-                <h1 className="max-w-4xl text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
-                  Open Plots in
-                  <span className="block text-[#d5b45f]">
-                    Shadnagar
-                  </span>
-                </h1>
-
-                {/* Description */}
-
-                <p className="mt-7 max-w-2xl text-base leading-8 text-white/80 md:text-lg">
-                  Discover residential plots, commercial
-                  plots and farm lands around Shadnagar,
-                  RRR, Balanagar, Kallepally and the
-                  Bangalore Highway corridor.
-                </p>
-
-                {/* CTA */}
-
-                <div className="mt-9 flex flex-wrap gap-3">
-
-                  <Link
-                    href="/projects"
-                    className="group inline-flex items-center gap-2 rounded-full bg-[#00540D] px-7 py-4 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(0,0,0,0.18)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#003B09]"
-                  >
-                    Explore Projects
-
-                    <ArrowUpRight
-                      size={17}
-                      className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                    />
-                  </Link>
-
-                  <Link
-                    href="/book-site-visit"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-7 py-4 text-sm font-semibold text-white backdrop-blur-md transition-all duration-300 hover:bg-white hover:text-[#00540D]"
-                  >
-                    Book a Site Visit
-
-                    <ArrowRight size={17} />
-                  </Link>
-
-                </div>
+         <Hero/>
 
                 {/* Trust points */}
 
-                <div className="mt-10 flex flex-wrap gap-x-7 gap-y-3">
-
-                  <TrustPoint text="Multiple Plot Options" />
-
-                  <TrustPoint text="Project-wise Details" />
-
-                  <TrustPoint text="Site Visit Assistance" />
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
+                
         </section>
 
         {/* ===================================================
