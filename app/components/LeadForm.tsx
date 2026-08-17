@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import {
   CheckCircle2,
   Loader2,
@@ -12,74 +13,52 @@ export default function LeadForm() {
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  async function submitForm(
-    e: React.FormEvent<HTMLFormElement>
-  ) {
-    e.preventDefault();
+  async function submitForm(e: React.FormEvent<HTMLFormElement>) {
+  e.preventDefault();
 
-    setLoading(true);
-    setSubmitted(false);
+  setLoading(true);
+  setSubmitted(false);
 
-    const form = e.currentTarget;
-    const formData = new FormData(form);
+  const form = e.currentTarget;
+  const formData = new FormData(form);
 
-    const payload = {
-      name: String(formData.get("name") || "").trim(),
-      phone: String(formData.get("phone") || "").trim(),
-      email: String(formData.get("email") || "").trim(),
+  const templateParams = {
+    name: String(formData.get("name") || "").trim(),
+    phone: String(formData.get("phone") || "").trim(),
+    email: String(formData.get("email") || "").trim(),
+    project: String(formData.get("project") || ""),
+    size: String(formData.get("size") || ""),
+    budget: String(formData.get("budget") || ""),
+    message: String(formData.get("message") || "").trim(),
+    source: "Website",
+    page_url:
+      typeof window !== "undefined"
+        ? window.location.href
+        : "",
+  };
 
-      project: String(
-        formData.get("project") || ""
-      ),
-
-      size: String(
-        formData.get("size") || ""
-      ),
-
-      budget: String(
-        formData.get("budget") || ""
-      ),
-
-      message: String(
-        formData.get("message") || ""
-      ).trim(),
-
-      source: "website",
-
-      page_url:
-        typeof window !== "undefined"
-          ? window.location.href
-          : "",
-    };
-
-    try {
-      const response = await fetch("/api/leads", {
-        method: "POST",
-
-        headers: {
-          "Content-Type": "application/json",
-        },
-
-        body: JSON.stringify(payload),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to submit lead");
+  try {
+    await emailjs.send(
+      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+      templateParams,
+      {
+        publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
       }
+    );
 
-      form.reset();
+    form.reset();
+    setSubmitted(true);
+  } catch (error) {
+    console.error("EmailJS error:", error);
 
-      setSubmitted(true);
-    } catch (error) {
-      console.error("Lead form error:", error);
-
-      alert(
-        "Something went wrong. Please try again or contact our sales team."
-      );
-    } finally {
-      setLoading(false);
-    }
+    alert(
+      "Something went wrong. Please try again or contact our sales team."
+    );
+  } finally {
+    setLoading(false);
   }
+}
 
   return (
     <div
