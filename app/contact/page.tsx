@@ -295,8 +295,8 @@ export default function ContactPage() {
                 <ContactItem
                   icon={<Mail size={18} />}
                   title="Email"
-                  value="info@openplotsinshadnagar.com"
-                  href="mailto:info@openplotsinshadnagar.com"
+                  value="aarnainfradevelopers@gmail.com"
+                  href="mailto:aarnainfradevelopers@gmail.com"
                 />
 
                 <ContactItem

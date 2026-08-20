@@ -18,6 +18,9 @@ import FeaturedProjects from "./components/FeaturedProjects";
 import WhyShadnagar from "./components/WhyShadnagar";
 import LeadForm from "./components/LeadForm";
 import Hero from "./components/Hero";
+import FAQSection, {
+  faqs,
+} from "./components/FAQSection";
 
 
 /* =========================================================
@@ -125,6 +128,18 @@ export default function HomePage() {
       },
     ],
   };
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
 
   return (
     <>
@@ -140,6 +155,13 @@ export default function HomePage() {
       />
 
      
+
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify(faqSchema),
+  }}
+/>
 
       <main>
 
@@ -788,6 +810,8 @@ export default function HomePage() {
 
         </section>
 
+ 
+<FAQSection/>
       </main>
 
     

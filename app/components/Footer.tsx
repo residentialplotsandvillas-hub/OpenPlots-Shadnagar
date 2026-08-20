@@ -390,11 +390,19 @@ export default function Footer() {
 
           {/* Copyright */}
 
-          <p className="text-xs text-[#8a938d]">
-            © {currentYear} OpenPlots Shadnagar.
-            All rights reserved.
-          </p>
-
+       <p className="text-xs text-[#8a938d]">
+  © {currentYear} OpenPlots Shadnagar. All rights reserved.{" "}
+  <span className="mx-1">|</span>
+  Developed by{" "}
+  <a
+    href="https://aarnainfradevelopers.com/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="font-semibold text-green-700 underline decoration-green-700 underline-offset-2 transition hover:text-green-800"
+  >
+    Aarna Infra Developers
+  </a>
+</p>
           {/* Legal */}
 
           <div className="flex flex-wrap gap-x-5 gap-y-2">

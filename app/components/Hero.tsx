@@ -455,7 +455,7 @@ export default function Hero() {
 
       <div className="absolute inset-0 -z-20 bg-gradient-to-r from-[#002F08]/95 via-[#003B09]/80 to-[#003B09]/35" />
 
-      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#002A06]/95 via-transparent to-[#003B09]/20" />
+      <div className="absolute inset-0 -z-10 " />
 
       {/* =====================================================
           CONTENT
