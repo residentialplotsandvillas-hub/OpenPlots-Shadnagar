@@ -22,7 +22,6 @@ import FAQSection, {
   faqs,
 } from "./components/FAQSection";
 
-
 /* =========================================================
    SEO METADATA
 ========================================================= */
@@ -140,7 +139,6 @@ const faqSchema = {
     },
   })),
 };
-
   return (
     <>
       {/* =====================================================
@@ -809,7 +807,7 @@ const faqSchema = {
           </div>
 
         </section>
-
+    <FAQSchema />
  
 <FAQSection/>
       </main>
