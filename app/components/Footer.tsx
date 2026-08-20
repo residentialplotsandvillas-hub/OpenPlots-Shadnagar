@@ -189,7 +189,7 @@ export default function Footer() {
               {/* Email */}
 
               <a
-                href="mailto:info@openplotsinshadnagar.com"
+                href="mailto:aarnainfradevelopers@gmail.com"
                 className="group flex items-center gap-3 break-all text-sm text-[#53605A] transition-colors duration-200 hover:text-[#00540D]"
               >
 
@@ -198,7 +198,7 @@ export default function Footer() {
                 </span>
 
                 <span>
-                  info@openplotsinshadnagar.com
+                 aarnainfradevelopers@gmail.com
                 </span>
 
               </a>

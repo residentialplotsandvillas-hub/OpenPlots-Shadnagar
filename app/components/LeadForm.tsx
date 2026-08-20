@@ -23,19 +23,25 @@ export default function LeadForm() {
   const formData = new FormData(form);
 
   const templateParams = {
-    name: String(formData.get("name") || "").trim(),
-    phone: String(formData.get("phone") || "").trim(),
-    email: String(formData.get("email") || "").trim(),
-    project: String(formData.get("project") || ""),
-    size: String(formData.get("size") || ""),
-    budget: String(formData.get("budget") || ""),
-    message: String(formData.get("message") || "").trim(),
-    source: "Website",
-    page_url:
-      typeof window !== "undefined"
-        ? window.location.href
-        : "",
-  };
+  name: String(formData.get("name") || "").trim(),
+  phone: String(formData.get("phone") || "").trim(),
+  email: String(formData.get("email") || "").trim(),
+  project: String(formData.get("project") || ""),
+  size: String(formData.get("size") || ""),
+  budget: String(formData.get("budget") || ""),
+
+  // NEW FIELDS
+  visit_date: String(formData.get("visit_date") || ""),
+  visit_time: String(formData.get("visit_time") || ""),
+  pickup_location: String(formData.get("pickup_location") || ""),
+
+  message: String(formData.get("message") || "").trim(),
+  source: "Website",
+  page_url:
+    typeof window !== "undefined"
+      ? window.location.href
+      : "",
+};
 
   try {
     await emailjs.send(
@@ -343,7 +349,91 @@ export default function LeadForm() {
               </select>
 
             </div>
+{/* =================================================
+    SITE VISIT DATE
+================================================== */}
 
+<div>
+  <label
+    htmlFor="visit-date"
+    className="mb-2 block text-sm font-semibold text-black"
+  >
+    Site Visit Date
+  </label>
+
+  <input
+    id="visit-date"
+    name="visit_date"
+    type="date"
+    required
+    min={new Date().toISOString().split("T")[0]}
+    className="input-premium cursor-pointer"
+  />
+</div>
+
+{/* =================================================
+    SITE VISIT TIME
+================================================== */}
+
+<div>
+  <label
+    htmlFor="visit-time"
+    className="mb-2 block text-sm font-semibold text-black"
+  >
+    Preferred Visit Time
+  </label>
+
+  <select
+    id="visit-time"
+    name="visit_time"
+    required
+    defaultValue=""
+    className="input-premium cursor-pointer"
+  >
+    <option value="">Select preferred time</option>
+        <option value="06:00 AM">06:00 AM</option>
+            <option value="07:00 AM">07:00 AM</option>
+                <option value="08:00 AM">08:00 AM</option>
+    <option value="09:00 AM">09:00 AM</option>
+    <option value="10:00 AM">10:00 AM</option>
+    <option value="11:00 AM">11:00 AM</option>
+    <option value="12:00 PM">12:00 PM</option>
+    <option value="01:00 PM">01:00 PM</option>
+    <option value="02:00 PM">02:00 PM</option>
+    <option value="03:00 PM">03:00 PM</option>
+    <option value="04:00 PM">04:00 PM</option>
+    <option value="05:00 PM">05:00 PM</option>
+    <option value="06:00 PM">06:00 PM</option>
+  </select>
+</div>
+
+
+{/* =================================================
+    PICKUP LOCATION
+================================================== */}
+
+<div>
+  <label
+    htmlFor="pickup-location"
+    className="mb-2 block text-sm font-semibold text-black"
+  >
+    Pick-up Location
+  </label>
+
+  <input
+    id="pickup-location"
+    name="pickup_location"
+    type="text"
+    required
+    placeholder="Enter your pickup location in Hyderabad"
+    autoComplete="street-address"
+    className="input-premium"
+  />
+
+  <p className="mt-1.5 text-[11px] text-[#8a938d]">
+    Example: Kukatpally, Miyapur, Gachibowli, Uppal
+  </p>
+</div>
             {/* =================================================
                 MESSAGE
             ================================================== */}
@@ -390,7 +480,7 @@ export default function LeadForm() {
                 </>
               ) : (
                 <>
-                  Request Site Visit
+                  Schedule A Site Visit
 
                   <MapPin size={17} />
                 </>
