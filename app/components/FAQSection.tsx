@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const faqs = [
+export const faqs = [
   {
     question: "What are the best open plots in Shadnagar?",
     answer:
