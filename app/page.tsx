@@ -21,6 +21,7 @@ import Hero from "./components/Hero";
 import FAQSection, {
   faqs,
 } from "./components/FAQSection";
+import FAQSchema from "./components/FAQSchema";
 
 /* =========================================================
    SEO METADATA
@@ -128,17 +129,17 @@ export default function HomePage() {
     ],
   };
 const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((faq) => ({
-    "@type": "Question",
-    name: faq.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: faq.answer,
-    },
-  })),
-};
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
   return (
     <>
       {/* =====================================================
