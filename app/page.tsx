@@ -18,10 +18,7 @@ import FeaturedProjects from "./components/FeaturedProjects";
 import WhyShadnagar from "./components/WhyShadnagar";
 import LeadForm from "./components/LeadForm";
 import Hero from "./components/Hero";
-import FAQSection, {
-  faqs,
-} from "./components/FAQSection";
-import FAQSchema from "./components/FAQSchema";
+import FAQSection from "./components/FAQSection";
 
 /* =========================================================
    SEO METADATA
@@ -128,18 +125,71 @@ export default function HomePage() {
       },
     ],
   };
+const homeFaqs = [
+  {
+    question: "What are the best open plots in Shadnagar?",
+    answer:
+      "Open Plots in Shadnagar features projects such as Sanjeevini Golden Farm, Green Meadows, Golden Terra and Winridge Spar Venture. Buyers can compare location, plot size, project details and applicable approvals before selecting a property.",
+  },
+  {
+    question: "Why should I invest in plots in Shadnagar?",
+    answer:
+      "Shadnagar is a developing real estate destination with connectivity to major roads, highways and surrounding growth corridors. It can be considered by buyers looking for residential land or long-term property investment.",
+  },
+  {
+    question: "Are there residential plots for sale in Shadnagar?",
+    answer:
+      "Yes. Residential plot options are available across different projects and locations around Shadnagar. Plot size, availability and prices may vary depending on the project.",
+  },
+  {
+    question: "What plot sizes are available in Shadnagar?",
+    answer:
+      "Plot sizes vary from project to project. Buyers can explore different residential, commercial and farm-land plot options based on their requirements and budget.",
+  },
+  {
+    question: "Are the plots HMDA or RERA approved?",
+    answer:
+      "Approval status varies by project. Buyers should verify the applicable HMDA, DTCP or RERA documentation for the specific project before making a purchase decision.",
+  },
+  {
+    question: "Which areas near Shadnagar are suitable for investment?",
+    answer:
+      "Shadnagar, Balanagar, Kallepally, Jadcherla and surrounding highway and growth corridors are locations that buyers may consider depending on their budget, purpose and investment goals.",
+  },
+  {
+    question: "Can I build a house on an open plot?",
+    answer:
+      "Construction depends on the project's layout permissions, land-use regulations, local approvals and applicable building rules. Buyers should verify these details before purchasing.",
+  },
+  {
+    question: "How can I schedule a site visit?",
+    answer:
+      "You can contact our team to check the latest project availability and schedule a convenient site visit to explore the location and surroundings.",
+  },
+  {
+    question: "What should I check before buying a plot?",
+    answer:
+      "Before purchasing, buyers should verify ownership, title documents, layout permissions, applicable RERA, HMDA or DTCP details, road access, plot dimensions, development status and other relevant legal documents.",
+  },
+  {
+    question: "How can I get the latest plot price?",
+    answer:
+      "Plot prices and availability can change over time. Contact our team for the latest pricing, available plot numbers, payment details and site-visit information.",
+  },
+];
+
 const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-  };
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: homeFaqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
   return (
     <>
       {/* =====================================================
@@ -808,7 +858,7 @@ const faqSchema = {
           </div>
 
         </section>
-    <FAQSchema />
+
  
 <FAQSection/>
       </main>
