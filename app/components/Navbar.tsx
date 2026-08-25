@@ -79,6 +79,8 @@ export default function Navbar() {
               label="Plots for Sale"
             />
 
+            
+
             {/* =================================================
                 PROJECTS DROPDOWN
             ================================================== */}
@@ -228,7 +230,10 @@ export default function Navbar() {
             {/* =================================================
                 CTA
             ================================================== */}
-
+ <NavLink
+              href="/blog"
+              label="Blogs"
+            />
             <Link
               href="/book-site-visit"
               className="group ml-1 inline-flex items-center gap-2 rounded-full bg-[#00540D] px-5 py-3 text-[13px] font-semibold text-white shadow-[0_6px_18px_rgba(0,84,13,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#003B09] hover:shadow-[0_10px_25px_rgba(0,84,13,0.18)]"
