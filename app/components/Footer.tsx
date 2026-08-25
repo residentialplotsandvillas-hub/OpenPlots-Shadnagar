@@ -369,8 +369,8 @@ export default function Footer() {
 
           <p className="mx-auto max-w-5xl text-center text-xs leading-6 text-[#7a847d]">
             Explore plotted developments, residential plots
-            and farm land projects around Shadnagar,
-            Balanagar, Kallepally, RRR, Jadcherla and the
+            and farm land projects around Shadnagar, And
+            Balanagar, Kallepally, RRR,Jadcherla and the
             Bangalore Highway corridor. Project information,
             pricing and availability may change and should
             be independently verified before purchase.
