@@ -12,6 +12,7 @@ import GoogleAnalytics from "./components/GoogleAnalytics";
 
 
 import JsonLd from "./components/JsonLd";
+import FloatingContactButtons from "./components/FloatingContactButtons";
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
@@ -182,7 +183,7 @@ export default function RootLayout({
         {/* =================================================
             HEADER
         ================================================== */}
-
+<FloatingContactButtons />
         <Navbar />
  <GoogleAnalytics />
 

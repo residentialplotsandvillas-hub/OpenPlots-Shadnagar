@@ -16,7 +16,7 @@ export const faqs = [
   {
     question: "Are there residential plots for sale in Shadnagar?",
     answer:
-      "Yes. Residential plot options are available across different projects and locations around Shadnagar. Plot sizes, availability and prices may vary depending on the project.",
+      "Yes. Residential plot options are available across different projects and locations around Shadnagar. Plot size, availability and prices may vary depending on the project.",
   },
   {
     question: "What plot sizes are available in Shadnagar?",

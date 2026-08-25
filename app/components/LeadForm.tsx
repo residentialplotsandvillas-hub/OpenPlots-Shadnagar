@@ -241,7 +241,7 @@ export default function LeadForm() {
                 </option>
 
                 <option value="Any Project">
-                  Any Project
+                  Any Other Project
                 </option>
 
               </select>
@@ -343,7 +343,10 @@ export default function LeadForm() {
                 </option>
 
                 <option value="₹75 Lakhs+">
-                  ₹75 Lakhs+
+                  ₹75 Lakhs
+                </option>
+                   <option value="₹75 Lakhs+">
+                  ₹1 Crore+
                 </option>
 
               </select>
