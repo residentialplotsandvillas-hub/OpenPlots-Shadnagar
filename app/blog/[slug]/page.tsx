@@ -5,7 +5,10 @@ import {
   ArrowLeft,
   CalendarDays,
 } from "lucide-react";
+
 import { supabase } from "../../lib/supabase";
+
+export const dynamic = "force-dynamic";
 
 type Props = {
   params: Promise<{
@@ -14,14 +17,21 @@ type Props = {
 };
 
 async function getBlog(slug: string) {
+  const cleanSlug = decodeURIComponent(slug).trim();
+
   const { data, error } = await supabase
     .from("blogs")
     .select("*")
-    .eq("slug", slug)
+    .eq("slug", cleanSlug)
     .eq("published", true)
-    .single();
+    .maybeSingle();
 
-  if (error || !data) {
+  console.log("BLOG SLUG:", cleanSlug);
+  console.log("BLOG DATA:", data);
+  console.log("BLOG ERROR:", error);
+
+  if (error) {
+    console.error("Supabase blog error:", error);
     return null;
   }
 
