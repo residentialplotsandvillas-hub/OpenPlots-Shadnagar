@@ -5,7 +5,6 @@ import {
   ArrowLeft,
   CalendarDays,
 } from "lucide-react";
-
 import { supabase } from "../../lib/supabase";
 
 type Props = {
