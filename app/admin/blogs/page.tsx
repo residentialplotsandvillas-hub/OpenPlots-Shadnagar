@@ -675,30 +675,55 @@ export default function AdminBlogsPage() {
                   CONTENT
               ================================================= */}
 
-              <div className="lg:col-span-2">
+            <div className="lg:col-span-2">
 
-                <label className="text-sm font-bold text-slate-800">
-                  Blog Content
-                </label>
+  <label className="text-sm font-bold text-slate-800">
+    Blog Content
+  </label>
 
-                <textarea
-                  value={form.content}
-                  onChange={(e) =>
-                    updateField(
-                      "content",
-                      e.target.value
-                    )
-                  }
-                  rows={18}
-                  placeholder="<h2>Heading</h2><p>Your blog content...</p>"
-                  className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 font-mono text-sm outline-none transition focus:border-[#00540D]"
-                />
+  <textarea
+    value={form.content}
+    onChange={(e) =>
+      updateField("content", e.target.value)
+    }
+    rows={20}
+    placeholder={`Write your article here...
 
-                <p className="mt-2 text-xs text-slate-500">
-                  HTML is supported.
-                </p>
+Leave one blank line between paragraphs.
 
-              </div>
+Why Invest in Shadnagar?
+
+Shadnagar is becoming an important real estate destination near Hyderabad.
+
+Excellent Connectivity
+
+The area has excellent connectivity to Hyderabad and major highways.`}
+    className="
+      mt-2
+      w-full
+      resize-y
+      rounded-xl
+      border
+      border-slate-200
+      bg-white
+      px-4
+      py-4
+      text-base
+      leading-8
+      text-slate-700
+      outline-none
+      transition
+      focus:border-[#00540D]
+      focus:ring-2
+      focus:ring-[#00540D]/10
+    "
+  />
+
+  <p className="mt-2 text-xs text-slate-500">
+    Write normal text. Leave one blank line between paragraphs.
+  </p>
+
+</div>
 
               {/* =================================================
                   SEO TITLE

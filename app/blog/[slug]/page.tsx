@@ -185,6 +185,7 @@
 // }
 
 
+
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -204,8 +205,14 @@ type Props = {
   }>;
 };
 
+/* =====================================================
+   GET BLOG
+===================================================== */
+
 async function getBlog(slug: string) {
-  const cleanSlug = decodeURIComponent(slug).trim();
+  const cleanSlug = decodeURIComponent(slug)
+    .trim()
+    .replace(/^\/+/, "");
 
   const { data, error } = await supabase
     .from("blogs")
@@ -222,6 +229,10 @@ async function getBlog(slug: string) {
   return data;
 }
 
+/* =====================================================
+   METADATA
+===================================================== */
+
 export async function generateMetadata({
   params,
 }: Props): Promise<Metadata> {
@@ -232,6 +243,7 @@ export async function generateMetadata({
   if (!blog) {
     return {
       title: "Blog Not Found",
+      description: "The requested blog article could not be found.",
     };
   }
 
@@ -262,6 +274,10 @@ export async function generateMetadata({
   };
 }
 
+/* =====================================================
+   PAGE
+===================================================== */
+
 export default async function BlogArticlePage({
   params,
 }: Props) {
@@ -273,6 +289,16 @@ export default async function BlogArticlePage({
     notFound();
   }
 
+  /* =====================================================
+     CONVERT NORMAL TEXT INTO ARTICLE PARAGRAPHS
+  ===================================================== */
+
+  const contentBlocks = blog.content
+    .replace(/\r\n/g, "\n")
+    .split(/\n\s*\n/)
+    .map((block: string) => block.trim())
+    .filter(Boolean);
+
   return (
     <main className="bg-white">
 
@@ -282,8 +308,6 @@ export default async function BlogArticlePage({
 
       <section className="relative overflow-hidden bg-[#f7faf7]">
 
-        {/* Background decoration */}
-
         <div className="pointer-events-none absolute -right-40 -top-40 h-[500px] w-[500px] rounded-full bg-[#00540D]/5 blur-3xl" />
 
         <div className="pointer-events-none absolute -bottom-40 -left-40 h-[450px] w-[450px] rounded-full bg-[#00540D]/5 blur-3xl" />
@@ -292,7 +316,7 @@ export default async function BlogArticlePage({
 
           <div className="mx-auto max-w-5xl py-12 md:py-20">
 
-            {/* Back */}
+            {/* BACK TO BLOG */}
 
             <Link
               href="/blog"
@@ -302,7 +326,7 @@ export default async function BlogArticlePage({
               Back to Blog
             </Link>
 
-            {/* Category */}
+            {/* CATEGORY */}
 
             {blog.category && (
               <div className="mt-8">
@@ -314,26 +338,27 @@ export default async function BlogArticlePage({
               </div>
             )}
 
-            {/* Title */}
+            {/* TITLE */}
 
             <h1 className="mt-6 max-w-5xl text-4xl font-bold leading-[1.08] tracking-tight text-black sm:text-5xl md:text-6xl lg:text-7xl">
               {blog.title}
             </h1>
 
-            {/* Excerpt */}
+            {/* EXCERPT */}
 
             {blog.excerpt && (
-              <p className="mt-7 max-w-4xl text-base leading-8 text-[#68716B] md:text-lg md:leading-9">
+              <p className="mt-6 max-w-4xl text-base leading-7 text-[#68716B] md:text-lg md:leading-8">
                 {blog.excerpt}
               </p>
             )}
 
-            {/* Meta */}
+            {/* META */}
 
-            <div className="mt-7 flex flex-wrap items-center gap-5 text-sm text-[#7b847e]">
+            <div className="mt-6 flex flex-wrap items-center gap-5 text-sm text-[#7b847e]">
 
               <div className="flex items-center gap-2">
                 <CalendarDays size={16} />
+
                 {new Date(
                   blog.created_at
                 ).toLocaleDateString("en-IN", {
@@ -358,15 +383,14 @@ export default async function BlogArticlePage({
 
       </section>
 
-
       {/* =====================================================
           FEATURED IMAGE
       ===================================================== */}
 
       {blog.featured_image && (
-        <section className="container-main pt-8 md:pt-12">
+        <section className="container-main pt-8 md:pt-10">
 
-          <div className="mx-auto max-w-5xl overflow-hidden rounded-3xl shadow-sm">
+          <div className="mx-auto max-w-5xl overflow-hidden rounded-3xl">
 
             <img
               src={blog.featured_image}
@@ -379,115 +403,66 @@ export default async function BlogArticlePage({
         </section>
       )}
 
-
       {/* =====================================================
-          ARTICLE
+          ARTICLE CONTENT
       ===================================================== */}
 
-      <section className="bg-white py-12 md:py-20">
+      <section className="bg-white py-10 md:py-14">
 
         <div className="container-main">
 
-          <article
-            className="
-              mx-auto
-              max-w-4xl
+          <article className="mx-auto max-w-4xl">
 
-              text-[17px]
-              leading-8
-              text-[#4f5952]
+            <div className="text-[17px] leading-8 text-[#454d47] md:text-[18px] md:leading-8">
 
-              md:text-[18px]
-              md:leading-9
+              {contentBlocks.map(
+                (block: string, index: number) => {
 
-              [&_p]:mb-7
+                  /*
+                   * Short standalone text is treated
+                   * as a section heading.
+                   */
 
-              [&_h2]:mb-5
-              [&_h2]:mt-14
-              [&_h2]:text-3xl
-              [&_h2]:font-bold
-              [&_h2]:leading-tight
-              [&_h2]:text-[#003B09]
+                  const isHeading =
+                    block.length <= 80 &&
+                    !block.endsWith(".") &&
+                    !block.endsWith(",") &&
+                    !block.endsWith("!") &&
+                    !block.endsWith(":") &&
+                    block.split("\n").length === 1;
 
-              [&_h3]:mb-4
-              [&_h3]:mt-10
-              [&_h3]:text-2xl
-              [&_h3]:font-bold
-              [&_h3]:leading-tight
-              [&_h3]:text-[#00540D]
+                  if (isHeading) {
+                    return (
+                      <h2
+                        key={index}
+                        className="
+                          mt-10
+                          mb-4
+                          text-2xl
+                          font-bold
+                          leading-tight
+                          text-[#003B09]
+                          first:mt-0
+                          md:text-3xl
+                        "
+                      >
+                        {block}
+                      </h2>
+                    );
+                  }
 
-              [&_h4]:mb-3
-              [&_h4]:mt-8
-              [&_h4]:text-xl
-              [&_h4]:font-bold
-              [&_h4]:text-[#003B09]
+                  return (
+                    <p
+                      key={index}
+                      className="mb-5 last:mb-0"
+                    >
+                      {block}
+                    </p>
+                  );
+                }
+              )}
 
-              [&_strong]:font-bold
-              [&_strong]:text-[#111111]
-
-              [&_ul]:my-7
-              [&_ul]:list-disc
-              [&_ul]:space-y-3
-              [&_ul]:pl-7
-
-              [&_ol]:my-7
-              [&_ol]:list-decimal
-              [&_ol]:space-y-3
-              [&_ol]:pl-7
-
-              [&_li]:pl-1
-
-              [&_a]:font-semibold
-              [&_a]:text-[#00540D]
-              [&_a]:underline
-              [&_a]:underline-offset-4
-
-              [&_blockquote]:my-9
-              [&_blockquote]:border-l-4
-              [&_blockquote]:border-[#00540D]
-              [&_blockquote]:rounded-r-xl
-              [&_blockquote]:bg-[#f7faf7]
-              [&_blockquote]:px-6
-              [&_blockquote]:py-5
-              [&_blockquote]:italic
-              [&_blockquote]:text-[#4f5952]
-
-              [&_img]:my-9
-              [&_img]:w-full
-              [&_img]:rounded-2xl
-
-              [&_hr]:my-10
-              [&_hr]:border-[#dfe8e1]
-
-              [&_table]:my-9
-              [&_table]:w-full
-              [&_table]:border-collapse
-
-              [&_th]:border
-              [&_th]:border-[#dfe8e1]
-              [&_th]:bg-[#f7faf7]
-              [&_th]:p-3
-              [&_th]:text-left
-              [&_th]:font-bold
-              [&_th]:text-[#003B09]
-
-              [&_td]:border
-              [&_td]:border-[#dfe8e1]
-              [&_td]:p-3
-
-              [&_code]:rounded
-              [&_code]:bg-[#f3f5f3]
-              [&_code]:px-1.5
-              [&_code]:py-1
-              [&_code]:text-sm
-            "
-          >
-
-            <div
-              dangerouslySetInnerHTML={{
-                __html: blog.content,
-              }}
-            />
+            </div>
 
           </article>
 
@@ -495,20 +470,32 @@ export default async function BlogArticlePage({
 
       </section>
 
-
       {/* =====================================================
           BACK TO BLOG
       ===================================================== */}
 
       <section className="border-t border-[#dfe8e1] bg-[#f7faf7]">
 
-        <div className="container-main py-12">
+        <div className="container-main py-10">
 
           <div className="mx-auto max-w-4xl">
 
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 rounded-full bg-[#00540D] px-6 py-3.5 text-sm font-bold text-white transition hover:bg-[#003B09]"
+              className="
+                inline-flex
+                items-center
+                gap-2
+                rounded-full
+                bg-[#00540D]
+                px-6
+                py-3.5
+                text-sm
+                font-bold
+                text-white
+                transition
+                hover:bg-[#003B09]
+              "
             >
               <ArrowLeft size={16} />
               Back to All Blogs
