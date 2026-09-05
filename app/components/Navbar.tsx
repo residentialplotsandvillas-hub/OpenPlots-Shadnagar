@@ -43,12 +43,12 @@ export default function Navbar() {
   className="group shrink-0"
 >
   <Image
-    src="/images/logo.jpeg"
+    src="/images/logo.png"
     alt="Open Plots in Shadnagar"
     width={120}
     height={30}
     priority
-    className="h-auto w-[180px] object-contain transition-opacity duration-200 group-hover:opacity-90"
+    className="h-auto w-[120px] object-contain transition-opacity duration-200 group-hover:opacity-90"
   />
 </Link>
 
