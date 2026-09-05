@@ -80,14 +80,24 @@ export const projects: Project[] = [
       "Kallepally farm lands",
     ],
 
-    highlights: [
-      "242 – 605 Sq. Yds plot sizes",
-      "2 – 5 Guntas plot area",
-      "Near Shadnagar RRR",
-      "Near Bangalore Highway",
-      "Seasonal fruit plants",
-      "Organic farming",
-      "Resort and clubhouse access",
+ 
+     highlights: [
+  "242–605 Sq. Yds Plot Sizes",
+  "2–5 Guntas Plot Area",
+  "HMDA Zone Limits Project",
+  "Just 4 KM from Bangalore Highway (NH-44)",
+  "Just 3 KM from Regional Ring Road (RRR)",
+  "60 Feet Road-Facing Project",
+  "All 30 Feet Internal Roads",
+  "Ready-to-Construct Farmhouse Project",
+  "Spot Registration Project",
+  "Clubhouse & Resort Access",
+  "Swimming Pool & Cottages",
+  "Parks & Kids Play Area",
+  "Agarwood & Mahogany Plantations",
+  "Multi-Fruit & Organic Cultivation",
+  "50% Revenue Sharing Model",
+
     ],
   },
 
