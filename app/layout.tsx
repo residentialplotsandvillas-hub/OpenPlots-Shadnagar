@@ -5,6 +5,7 @@ import type {
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import EnquiryPopup from "./components/EnquiryPopup";
 
 import "./globals.css";
 import GoogleAnalytics from "./components/GoogleAnalytics";
@@ -193,6 +194,7 @@ export default function RootLayout({
 <JsonLd data={organizationSchema} />
   <JsonLd data={websiteSchema} />
 <JsonLd data={localBusinessSchema} />
+           <EnquiryPopup />
         {children}
 
         {/* =================================================
