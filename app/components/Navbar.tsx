@@ -46,9 +46,9 @@ export default function Navbar() {
     src="/images/logo.jpeg"
     alt="Open Plots in Shadnagar"
     width={120}
-    height={50}
+    height={30}
     priority
-    className="h-auto w-[80px] object-contain transition-opacity duration-200 group-hover:opacity-90"
+    className="h-auto w-[120px] object-contain transition-opacity duration-200 group-hover:opacity-90"
   />
 </Link>
 
