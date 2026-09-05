@@ -43,7 +43,7 @@ export default function Navbar() {
   className="group shrink-0"
 >
   <Image
-    src="/images/logo.png"
+    src="/images/logo.jpeg"
     alt="Open Plots in Shadnagar"
     width={80}
     height={30}
