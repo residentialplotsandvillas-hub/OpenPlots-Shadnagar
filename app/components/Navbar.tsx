@@ -48,7 +48,7 @@ export default function Navbar() {
     width={80}
     height={30}
     priority
-    className="h-auto w-[120px] object-contain transition-opacity duration-200 group-hover:opacity-90"
+    className="h-auto w-[80px] object-contain transition-opacity duration-200 group-hover:opacity-90"
   />
 </Link>
 
