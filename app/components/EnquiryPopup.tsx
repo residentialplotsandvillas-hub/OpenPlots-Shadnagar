@@ -7,7 +7,9 @@ export default function EnquiryPopup() {
 
   const [name, setName] = useState("");
   const [mobile, setMobile] = useState("");
+  const [email, setEmail] = useState("");
   const [project, setProject] = useState("");
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -22,16 +24,20 @@ export default function EnquiryPopup() {
 
     const whatsappNumber = "919959354255";
 
-    const message = `Hello, I am interested in your property project.
+    const whatsappMessage = `Hello, I am interested in your property project.
 
 Name: ${name}
 Mobile: ${mobile}
-Project: ${project || "Not selected"}
+Email: ${email}
+Project: ${project}
+
+Site Visit / Message:
+${message || "I would like to know more about this project."}
 
 Please share the project details, pricing and availability.`;
 
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-      message
+      whatsappMessage
     )}`;
 
     window.open(whatsappUrl, "_blank");
@@ -43,17 +49,19 @@ Please share the project details, pricing and availability.`;
 
   return (
     <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 px-4"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 px-4 py-6"
       onClick={() => setOpen(false)}
     >
       <div
-        className="relative w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl"
+        className="relative max-h-[95vh] w-full max-w-md overflow-y-auto rounded-2xl bg-white p-6 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close */}
+        {/* Close Button */}
         <button
+          type="button"
           onClick={() => setOpen(false)}
-          className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-xl text-gray-600 hover:bg-gray-200"
+          className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-xl text-gray-600 transition hover:bg-gray-200"
+          aria-label="Close"
         >
           ×
         </button>
@@ -69,35 +77,49 @@ Please share the project details, pricing and availability.`;
           </h2>
 
           <p className="mt-2 text-sm text-gray-600">
-            Fill in your details and connect with us directly on WhatsApp.
+            Fill in your details and connect with our team on WhatsApp.
           </p>
         </div>
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+
+          {/* Full Name */}
           <input
             type="text"
-            placeholder="Your Name"
+            placeholder="Full Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
-            className="w-full rounded-xl border border-gray-200 px-4 py-3 outline-none focus:border-green-500"
+            className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm outline-none transition focus:border-green-500 focus:ring-2 focus:ring-green-100"
           />
 
+          {/* Mobile */}
           <input
             type="tel"
             placeholder="Mobile Number"
             value={mobile}
             onChange={(e) => setMobile(e.target.value)}
             required
-            className="w-full rounded-xl border border-gray-200 px-4 py-3 outline-none focus:border-green-500"
+            className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm outline-none transition focus:border-green-500 focus:ring-2 focus:ring-green-100"
           />
 
+          {/* Email */}
+          <input
+            type="email"
+            placeholder="Email Address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm outline-none transition focus:border-green-500 focus:ring-2 focus:ring-green-100"
+          />
+
+          {/* Project */}
           <select
             value={project}
             onChange={(e) => setProject(e.target.value)}
             required
-            className="w-full rounded-xl border border-gray-200 px-4 py-3 outline-none focus:border-green-500"
+            className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-green-500 focus:ring-2 focus:ring-green-100"
           >
             <option value="" disabled>
               Select Project
@@ -120,6 +142,28 @@ Please share the project details, pricing and availability.`;
             </option>
           </select>
 
+          {/* Site Visit / Message */}
+          <textarea
+            placeholder="Book a Site Visit / Your Message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            rows={4}
+            className="w-full resize-none rounded-xl border border-gray-200 px-4 py-3 text-sm outline-none transition focus:border-green-500 focus:ring-2 focus:ring-green-100"
+          />
+
+          {/* Quick Site Visit Button */}
+          <button
+            type="button"
+            onClick={() =>
+              setMessage(
+                "I would like to book a site visit. Please contact me with the available dates and timings."
+              )
+            }
+            className="w-full rounded-xl border border-green-600 px-5 py-3 text-sm font-semibold text-green-600 transition hover:bg-green-50"
+          >
+            📅 Book a Site Visit
+          </button>
+
           {/* WhatsApp Button */}
           <button
             type="submit"
@@ -132,7 +176,7 @@ Please share the project details, pricing and availability.`;
               fill="currentColor"
               className="h-5 w-5"
             >
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.077 4.487.709.306 1.262.489 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
               <path d="M12.004 2C6.478 2 1.982 6.477 1.982 12c0 1.768.464 3.43 1.277 4.87L2 22l5.273-1.24A10.003 10.003 0 0012.004 22C17.53 22 22 17.523 22 12S17.53 2 12.004 2zm0 18.18a8.14 8.14 0 01-4.15-1.136l-.298-.177-3.13.736.746-3.054-.194-.313A8.15 8.15 0 013.84 12c0-4.505 3.66-8.17 8.164-8.17 4.505 0 8.17 3.665 8.17 8.17 0 4.505-3.665 8.17-8.17 8.17z" />
             </svg>
 
@@ -141,7 +185,7 @@ Please share the project details, pricing and availability.`;
         </form>
 
         <p className="mt-4 text-center text-xs text-gray-500">
-          Our team will contact you shortly.
+          Your details will be shared with our property team.
         </p>
       </div>
     </div>
